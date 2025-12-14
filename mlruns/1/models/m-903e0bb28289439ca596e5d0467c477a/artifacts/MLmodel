@@ -1,0 +1,22 @@
+artifact_path: /Users/sintayehuabaynhe/Public/10/week4/credit-risk-model/mlruns/1/models/m-903e0bb28289439ca596e5d0467c477a/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.7.0
+model_id: m-903e0bb28289439ca596e5d0467c477a
+model_size_bytes: 805
+model_uuid: m-903e0bb28289439ca596e5d0467c477a
+prompts: null
+run_id: 3ec21e93fbb1456e815005b86d879c93
+utc_time_created: '2025-12-14 17:10:04.453045'

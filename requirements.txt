@@ -12,3 +12,6 @@ xverse
 woe
 mlflow
 pytest
+fastapi
+uvicorn
+flake8

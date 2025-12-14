@@ -105,3 +105,17 @@ All unit tests passed successfully:
 tests/test_data_processing.py ..                                                              [100%]
 ========================================= 2 passed in 0.66s =========================================
 ```
+
+## Task 6: Model Deployment and Continuous Integration
+**Objective:** Package the trained model into a containerized API and set up a CI/CD pipeline.
+
+**Key Activities:**
+- **API Development:** Built a REST API using `FastAPI` to serve predictions.
+- **Model Loading:** Integrated with `MLflow` to load the best performing model dynamically.
+- **Containerization:** Created `Dockerfile` and `docker-compose.yml` for easy deployment.
+- **CI/CD:** Configured GitHub Actions (`.github/workflows/ci.yml`) to automate linting (`flake8`) and testing (`pytest`).
+
+**Deliverables:**
+- `src/api/main.py`: FastAPI application.
+- `Dockerfile` & `docker-compose.yml`: Container configuration.
+- `.github/workflows/ci.yml`: CI pipeline definition.

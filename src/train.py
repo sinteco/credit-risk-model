@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 import mlflow
 import mlflow.sklearn
@@ -58,7 +59,9 @@ def train_and_log_model(model_name, model, param_grid, X_train, y_train, X_test,
 
 def main():
     # Configuration
-    DATA_PATH = '../data/raw/insurance.csv'
+    # Construct absolute path to data file
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    DATA_PATH = os.path.join(base_dir, 'data', 'raw', 'insurance.csv')
     EXPERIMENT_NAME = "Credit_Risk_Model_Experiment"
     
     # Set MLflow Experiment
@@ -84,30 +87,29 @@ def main():
     X = df[numerical_features + categorical_features]
     y = df['target']
     
-    # Build and apply pipeline
-    pipeline = build_pipeline(numerical_features, categorical_features)
-    X_processed = pipeline.fit_transform(X)
+    # 4. Split Data (Raw)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    # 4. Split Data
-    X_train, X_test, y_train, y_test = train_test_split(X_processed, y, test_size=0.2, random_state=42)
+    # Get the preprocessing pipeline
+    preprocessing_pipeline = build_pipeline(numerical_features, categorical_features)
     
     # 5. Define Models and Hyperparameters
     models_config = [
         {
             "name": "Logistic_Regression",
-            "model": LogisticRegression(max_iter=1000, random_state=42),
+            "model": Pipeline(steps=[('preprocessor', preprocessing_pipeline), ('classifier', LogisticRegression(max_iter=1000, random_state=42))]),
             "params": {
-                "C": [0.1, 1.0, 10.0],
-                "solver": ["liblinear", "lbfgs"]
+                "classifier__C": [0.1, 1.0, 10.0],
+                "classifier__solver": ["liblinear", "lbfgs"]
             }
         },
         {
             "name": "Random_Forest",
-            "model": RandomForestClassifier(random_state=42),
+            "model": Pipeline(steps=[('preprocessor', preprocessing_pipeline), ('classifier', RandomForestClassifier(random_state=42))]),
             "params": {
-                "n_estimators": [50, 100],
-                "max_depth": [None, 10, 20],
-                "min_samples_split": [2, 5]
+                "classifier__n_estimators": [50, 100],
+                "classifier__max_depth": [None, 10, 20],
+                "classifier__min_samples_split": [2, 5]
             }
         }
     ]
