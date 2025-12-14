@@ -63,3 +63,16 @@ In a regulated financial context, the trade-off often leans towards **Logistic R
 
 **Deliverables:**
 - `src/data_processing.py`: Python script containing the feature engineering pipeline and WoE implementation.
+
+## Task 4: Proxy Target Variable Engineering
+**Objective:** Create a credit risk target variable (`is_high_risk`) since the dataset lacks a pre-existing label.
+
+**Key Activities:**
+- **RFM Calculation:** Calculating Recency, Frequency, and Monetary metrics for each customer.
+- **Clustering:** Using K-Means to segment customers into 3 groups based on RFM profiles.
+- **Risk Labeling:** Identifying the "disengaged" (low frequency, low monetary) cluster and labeling it as high-risk (1).
+- **Integration:** Merging the new target variable back into the dataset.
+
+**Deliverables:**
+- `src/proxy_labeling.py`: Python module for RFM calculation and risk labeling.
+- `notebooks/proxy_labeling.ipynb`: Notebook demonstrating the process with synthetic data (due to dataset limitations).
