@@ -1,10 +1,14 @@
 from pydantic import BaseModel
+from typing import Literal
 
-class CreditScoringRequest(BaseModel):
-    # TODO: Define input fields
-    transaction_id: str
-    amount: float
+class CustomerData(BaseModel):
+    age: int
+    bmi: float
+    children: int
+    sex: Literal['male', 'female']
+    smoker: Literal['yes', 'no']
+    region: Literal['southwest', 'southeast', 'northwest', 'northeast']
 
-class CreditScoringResponse(BaseModel):
-    score: float
-    risk_level: str
+class PredictionResponse(BaseModel):
+    risk_probability: float
+    is_high_risk: int
