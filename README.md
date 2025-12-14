@@ -35,3 +35,17 @@ In the absence of a direct "default" label (e.g., historical loan repayment reco
 | **Implementation** | **Simple.** Easy to implement and deploy. | **Complex.** Requires more tuning and computational resources. |
 
 In a regulated financial context, the trade-off often leans towards **Logistic Regression** for its transparency, unless the performance gain from Gradient Boosting is significant and can be sufficiently explained using interpretability tools.
+
+## Task 2: Exploratory Data Analysis (EDA)
+**Objective:** Explore the dataset to uncover patterns, identify data quality issues, and form hypotheses that will guide feature engineering.
+
+**Key Activities:**
+- **Overview of the Data:** Understanding structure, rows, columns, and data types.
+- **Summary Statistics:** Analyzing central tendency, dispersion, and shape of distributions.
+- **Distribution Analysis:** Visualizing numerical and categorical features.
+- **Correlation Analysis:** Understanding relationships between numerical features.
+- **Missing Values & Outliers:** Identifying data quality issues.
+
+**Deliverables:**
+- `notebooks/eda.ipynb`: Jupyter notebook containing all EDA code and visualizations.
+- Summary of top 3–5 most important insights.
