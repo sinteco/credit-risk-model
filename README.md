@@ -90,3 +90,18 @@ In a regulated financial context, the trade-off often leans towards **Logistic R
 **Deliverables:**
 - `src/train.py`: Script for training, tuning, and logging models.
 - `tests/test_data_processing.py`: Unit tests for the data pipeline.
+
+### Experiment Results
+| Model | Accuracy | ROC-AUC | Best Parameters |
+| :--- | :--- | :--- | :--- |
+| **Logistic Regression** | 91.4% | 0.959 | `{'C': 10.0, 'solver': 'lbfgs'}` |
+| **Random Forest** | 94.4% | 0.956 | `{'max_depth': None, 'min_samples_split': 2, 'n_estimators': 100}` |
+
+**Selected Model:** Logistic Regression (Highest ROC-AUC).
+
+### Test Results
+All unit tests passed successfully:
+```bash
+tests/test_data_processing.py ..                                                              [100%]
+========================================= 2 passed in 0.66s =========================================
+```
