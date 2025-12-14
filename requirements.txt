@@ -10,3 +10,5 @@ pytest
 jupyter
 xverse
 woe
+mlflow
+pytest

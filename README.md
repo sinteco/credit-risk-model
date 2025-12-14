@@ -76,3 +76,17 @@ In a regulated financial context, the trade-off often leans towards **Logistic R
 **Deliverables:**
 - `src/proxy_labeling.py`: Python module for RFM calculation and risk labeling.
 - `notebooks/proxy_labeling.ipynb`: Notebook demonstrating the process with synthetic data (due to dataset limitations).
+
+## Task 5: Model Training and Tracking
+**Objective:** Develop a structured model training process that includes experiment tracking, model versioning, and unit testing.
+
+**Key Activities:**
+- **Model Selection:** Training Logistic Regression and Random Forest models.
+- **Hyperparameter Tuning:** Using `GridSearchCV` to optimize model performance.
+- **Experiment Tracking:** Logging parameters, metrics, and artifacts to MLflow.
+- **Evaluation:** Assessing models using Accuracy, Precision, Recall, F1 Score, and ROC-AUC.
+- **Unit Testing:** Writing tests for data processing functions using `pytest`.
+
+**Deliverables:**
+- `src/train.py`: Script for training, tuning, and logging models.
+- `tests/test_data_processing.py`: Unit tests for the data pipeline.
