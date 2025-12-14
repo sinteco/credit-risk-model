@@ -8,3 +8,5 @@ uvicorn
 pydantic
 pytest
 jupyter
+xverse
+woe

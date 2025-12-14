@@ -49,3 +49,17 @@ In a regulated financial context, the trade-off often leans towards **Logistic R
 **Deliverables:**
 - `notebooks/eda.ipynb`: Jupyter notebook containing all EDA code and visualizations.
 - Summary of top 3–5 most important insights.
+
+## Task 3: Feature Engineering
+**Objective:** Build a robust, automated, and reproducible data processing script that transforms raw data into a model-ready format.
+
+**Key Activities:**
+- **Pipeline Construction:** Using `sklearn.pipeline.Pipeline` to chain transformation steps.
+- **Feature Engineering:** Creating aggregate features and interaction terms.
+- **Handling Missing Values:** Imputation strategies (Median/Mode).
+- **Encoding:** One-Hot Encoding for categorical variables.
+- **Scaling:** Standardization of numerical features.
+- **WoE and IV:** Implementing Weight of Evidence and Information Value calculations for feature selection and transformation.
+
+**Deliverables:**
+- `src/data_processing.py`: Python script containing the feature engineering pipeline and WoE implementation.
